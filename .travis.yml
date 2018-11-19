@@ -10,7 +10,6 @@ before_script:
 script: 
   - yarn run build
 
-
 before_deploy:
   - cd ./dist
   - git init 
