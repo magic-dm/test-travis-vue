@@ -18,7 +18,7 @@ before_deploy:
   - git config user.email "${U_EMAIL}"
   - git add .
   - git commit -m "run build from boot"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" origin:{P_BRANCH}
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:{P_BRANCH}
 
 
 deploy:
