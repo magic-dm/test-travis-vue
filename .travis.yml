@@ -8,7 +8,7 @@ install:
 before_script:
 
 script: 
-  - yarn run build
+  - yarn run dev
 
 
 before_deploy:
