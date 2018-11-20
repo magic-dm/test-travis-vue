@@ -11,20 +11,13 @@ script:
   - yarn run build
 
 before_deploy:
-  - cd ./dist
-  - git init 
-  - git config user.name "${U_NAME}"
-  - git config user.email "${U_EMAIL}"
-  - git add .
-  - git commit -m "run build from boot"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
-
 
 deploy:
   provider: pages
   skip_cleanup: true
   keep-history: true
   github_token: ${GH_TOKEN}
+  target-branch: gh-pages
   on: 
     branch: master
 
@@ -33,5 +26,12 @@ after_deploy:
 
 
 after_script:
+  - cd ./dist
+  - git init 
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
+  - git add .
+  - git commit -m "run build from boot"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
 
 
